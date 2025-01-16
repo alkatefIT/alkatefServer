@@ -16,7 +16,7 @@ app.use(express.urlencoded({ limit: "25mb" }));
 const storage = multer.memoryStorage(); // Store files in memory
 const upload = multer({ storage: storage });
 
-async function sendEmail({ email, name,nationality, resume,mobile,gender,skills,job,city,expirience }) {
+async function sendEmail({ email, name,nationality, resume,mobile,gender,skills,job,city,experience }) {
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -38,7 +38,7 @@ async function sendEmail({ email, name,nationality, resume,mobile,gender,skills,
       <p>Skills : ${skills}</p>
       <p>Job : ${job}</p>
       <p>City : ${city}</p>
-      <p>Expirience : ${expirience}</p>
+      <p>Experience : ${experience}</p>
 
       `,
       attachments: resume
@@ -71,7 +71,7 @@ app.post("/", upload.single("resume"), async (req, res) => {
       nationality: req.body.nationality,
       mobile: req.body.mobile,
       city: req.body.city,
-      expirience: req.body.expirience,
+      experience: req.body.experience,
       resume: req.file, // Access the uploaded file
     });
     res.send(response.message);
