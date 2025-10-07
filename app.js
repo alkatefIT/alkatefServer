@@ -58,7 +58,7 @@ async function sendEmail({
 
     // Send the email using Resend
     await resend.emails.send({
-      from: "Website <website@resend.dev>",
+      from: "AlKatef.com <website@resend.dev>",
       to: "web.alkatef@gmail.com",
       subject: "New Job Application from Alkatef.com",
       html,
